@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es" class=""><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Musicalismo | Cooking Media</title>
+<meta name="description" content="Espectáculo en vivo de Sergio Lagos con las canciones que amamos cantar, presentado como una experiencia junto a Caja Los Andes." data-base="Cooking Media: productora audiovisual especializada en contenidos non script y branded content. Hub de producción y postproducción con Trim Post.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cooking Media">
+<meta property="og:title" content="Musicalismo | Cooking Media">
+<meta property="og:description" content="Espectáculo en vivo de Sergio Lagos con las canciones que amamos cantar, presentado como una experiencia junto a Caja Los Andes.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120f0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23120f0c%27/%3E%3Cpath d=%27M9 23V9h14%27 fill=%27none%27 stroke=%27%23e2481a%27 stroke-width=%273.5%27/%3E%3Cpath d=%27M23 13v10H13%27 fill=%27none%27 stroke=%27%23f7f2e9%27 stroke-width=%273.5%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://use.typekit.net/xsb1fwf.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="canonical" href="https://www.cookingmedia.cl/programa/musicalismo/">
+<meta property="og:url" content="https://www.cookingmedia.cl/programa/musicalismo/">
+<meta property="og:image" content="https://www.cookingmedia.cl/assets/poster-reel.jpg">
+</head>
+<body data-static="1" data-root="../../" data-route="programa/musicalismo" data-site="https://www.cookingmedia.cl/" class="view-programa">
+<div class="loader" id="loader" role="status" aria-label="Cargando Cooking Media">
+  <div class="loader-logo" aria-hidden="true">
+    <img class="ll-base" src="../../assets/logo.png" alt="" width="320" height="102">
+    <div class="ll-fill" id="loaderLogoFill"><img src="../../assets/logo.png" alt="" width="320" height="102"></div>
+  </div>
+  <svg class="potsvg cook-pot" viewBox="0 0 200 200" aria-hidden="true"><g class="cp-steam"><path d="M66 86c-14-6-14-18 0-24s14-18 0-26"/><path d="M84 82c-10-5-10-14 0-19s10-14 0-20"/></g><g class="cp-lid"><path d="M58 104c4-16 22-26 42-26s38 10 42 26z"/><rect x="90" y="66" width="20" height="12" rx="3"/></g><path class="cp-handle" d="M46 112h12v8H50zM154 112h-12v8h8z"/><path class="cp-body" d="M56 110h88v44q0 14-14 14H70q-14 0-14-14z"/><rect class="cp-shine" x="66" y="120" width="16" height="38" rx="4"/></svg><svg class="potsvg cook-wok" viewBox="0 0 200 220" aria-hidden="true"><defs><linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2381a"/><stop offset=".55" stop-color="#e2481a"/><stop offset=".8" stop-color="#ff7a2e"/><stop offset="1" stop-color="#f2a93b"/></linearGradient></defs><path class="cw-flame" fill="url(#flameGrad)" d="M104 8c-6 22 30 36 30 66 0-10 10-18 10-18 14 22 14 52 6 70-10 24-32 38-56 38-30 0-54-22-54-54 0-18 8-30 16-38-2 12 4 20 10 22-6-26 14-58 38-86z"/><g class="cw-food"><circle class="f1" cx="86" cy="118" r="7"/><circle class="f2" cx="108" cy="112" r="5"/><circle class="f3" cx="96" cy="104" r="6" fill="none" stroke-width="3"/><circle class="f4" cx="118" cy="122" r="4"/></g><g class="cw-pan"><path d="M54 132q46 34 92 0z"/><path d="M144 134l38-6" stroke-width="7" stroke-linecap="round"/></g></svg>
+  <div class="loader-num" id="loaderNum">0<small>%</small></div>
+  <div class="loader-label" data-en="Cooking">Cocinando</div>
+  <div class="loader-bar"><i id="loaderBar"></i></div>
+  <script>
+  (function(){
+    var L=document.getElementById("loader"),N=document.getElementById("loaderNum"),B=document.getElementById("loaderBar"),
+        reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /* La olla aparece al abrir programas, fichas, quiénes somos y equipo; la cámara en el resto */
+    var POT={programas:1,programa:1,nosotros:1,equipo:1};
+    var route=document.body.getAttribute("data-route");
+    if(route===null) route=location.hash.replace(/^#\/?/,"");
+    var view=(route||"").split("/")[0]||"inicio", variant=POT[view]?"pot":"cam";
+    var key=variant==="pot"?"cm-pot-"+route:"cm-loaded";
+    var seen=false;try{seen=sessionStorage.getItem(key)==="1";sessionStorage.setItem(key,"1");}catch(e){}
+    if(seen){L.remove();return;}
+    /* todas las páginas usan el cargador del logo */
+    var parts=variant==="cam"?L.querySelectorAll(".cam *"):[],
+        p=0,loaded=false,start=performance.now(),MIN=reduce?150:(variant==="pot"?1150:650);
+    document.body.classList.add("loading");
+    addEventListener("load",function(){loaded=true});
+    function paint(v){
+      var r=Math.round(v);N.firstChild.nodeValue=r;B.style.width=v+"%";var F=document.getElementById("loaderLogoFill");if(F)F.style.clipPath="inset(0 "+(100-v)+"% 0 0)";
+      for(var i=0;i<parts.length;i++){var s=Math.min(1,Math.max(0,(v-i*4)/(100-parts.length*4+4)));parts[i].style.strokeDashoffset=100-s*100;}
+    }
+    if(reduce){for(var i=0;i<parts.length;i++)parts[i].style.strokeDashoffset=0;}
+    function tick(now){
+      var t=(now-start)/MIN, cap=loaded?100:90, target=Math.min(cap,100*(1-Math.pow(1-Math.min(t,1),2)));
+      if(loaded&&t>=1)target=100;
+      p+= (target-p)*(reduce?1:0.18); if(target-p<0.4)p=target;
+      paint(p);
+      if(p>=100){
+        L.classList.add("rolling");
+        setTimeout(function(){L.classList.add("done");document.body.classList.remove("loading");
+          setTimeout(function(){L.remove()},600);},reduce?50:250);
+        return;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+  </script>
+</div>
+
+<a class="sr" href="#main">Saltar al contenido</a>
+
+<header class="site-head solid" id="siteHead">
+  <div class="wrap head-row">
+    <a class="logo-link" href="../../" aria-label="CookingMedia, ir al inicio"><img src="../../assets/logo.png" alt="CookingMedia" width="320" height="102"></a>
+    <nav class="topnav" aria-label="Principal (escritorio)">
+      <a class="hl" href="../../hub1000/" data-route="/../hub1000/">Hub 1000</a><a class="hl" href="../../trim/" data-route="/../trim/">Trim Post</a>
+      <a href="../../programas/" data-en="Shows" data-es="Programas" data-route="/../programas/">Programas</a><a href="../../nosotros/" data-en="About" data-es="Nosotros" data-route="/../nosotros/">Nosotros</a><a href="../../equipo/" data-en="Team" data-es="Equipo" data-route="/../equipo/">Equipo</a>
+      <a class="btn btn-primary topnav-cta" href="../../contacto/" data-en="Contact" data-es="Contacto" data-route="/../contacto/">Contacto</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden="">
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a href="../../" data-en="Home" data-es="Inicio" data-route="/../">Inicio</a>
+    <a class="nav-hub" href="../../hub1000/" data-route="/../hub1000/">Hub 1000</a>
+    <a class="nav-hub" href="../../trim/" data-route="/../trim/">Trim Post</a>
+    <a href="../../programas/" data-en="Shows" data-es="Programas" data-route="/../programas/">Programas</a>
+    <a href="../../nosotros/" data-en="About us" data-es="Quiénes somos" data-route="/../nosotros/">Quiénes somos</a>
+    <a href="../../equipo/" data-en="Team" data-es="Equipo" data-route="/../equipo/">Equipo</a>
+    <a href="../../contacto/" data-en="Contact" data-es="Contacto" data-route="/../contacto/">Contacto</a>
+  </nav>
+  <div class="menu-foot">
+    <button class="lang" id="langBtn" aria-label="Switch to English">EN</button>
+    <div class="socials"><a href="https://www.instagram.com/cookingmediacl/" target="_blank" rel="noopener" aria-label="Instagram">In</a><a href="https://cl.linkedin.com/company/cookingmedia-contents" target="_blank" rel="noopener" aria-label="LinkedIn">Ld</a></div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- INICIO -->
+
+
+<!-- PROGRAMAS -->
+
+
+<!-- FICHA DE PROGRAMA (se arma con JS) -->
+<section class="view" data-view="programa"><div id="showPage">
+    <div class="show-hero" style="background-image:url('../../assets/videos/musicalismo.jpg');background-position:center 35%">
+      
+      <div class="wrap">
+        <a class="back" href="../../programas/">‹ Todos los programas</a>
+        <div><span class="tag">Caja Los Andes</span></div>
+        <h1 class="bracket" style="margin-top:18px">Musicalismo</h1>
+      </div>
+    </div>
+    <div class="section"><div class="wrap show-body">
+      <div class="" style="">
+        
+        <p class="lead">Espectáculo en vivo de Sergio Lagos con las canciones que amamos cantar, presentado como una experiencia junto a Caja Los Andes.</p>
+        <p class="story-extra">En el video final la marca abre y cierra el espectáculo, y durante las canciones aparece solo como un sello pequeño: el show manda, la marca firma.</p>
+        <p class="highlight">Disco 2026 de 12 canciones, de “Dilo calladito” a “Y volveré”.</p>
+        <p style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-primary" href="https://cookingmediacl.github.io/MUSICALISMO/" target="_blank" rel="noopener">Ver sitio de Musicalismo</a><a class="btn btn-ghost" href="https://open.spotify.com/album/2NtdI41amYHLM0gPs9Kpbt" target="_blank" rel="noopener">Escuchar el disco en Spotify</a></p>
+        
+      </div>
+      <dl class="spec" style="">
+        
+        <div><dt>Marca</dt><dd>Caja Los Andes</dd></div>
+        <div><dt>País</dt><dd>Chile</dd></div>
+        <div><dt>Género</dt><dd>Espectáculo musical</dd></div>
+        
+        <div><dt>Producción</dt><dd>CookingMedia</dd></div>
+      </dl>
+    </div></div>
+    
+    <div class="section"><div class="wrap"><h2 style="margin-bottom: 28px;" class="">Otros programas</h2><div class="grid" style=""><a class="pcard" href="../../programa/bilz-y-pap/" style=""><div class="pcard-img" style="background-image:url('../../assets/videos/bilz-y-pap-cocina.jpg');background-position:center"></div><div class="pcard-body">
+    <h3>Bilz y Pap</h3><span class="pcard-genre">Branded content</span><p>Contenidos de marca para Bilz y Pap: cocina en familia con los más chicos, experimentos y transmisiones de gaming.</p>
+    <span class="pcard-more">Ver ficha</span></div></a><a class="pcard" href="../../programa/miller-music/" style=""><div class="pcard-img" style="background-image:url('../../assets/videos/miller-music.jpg');background-position:center"></div><div class="pcard-body">
+    <h3>Miller Music</h3><span class="pcard-genre">Branded content</span><p>Concurso musical de Miller que invitó a nuevos talentos a grabar en un estudio profesional.</p>
+    <span class="pcard-more">Ver ficha</span></div></a><a class="pcard" href="../../programa/conexion-unica/" style=""><div class="pcard-img" style="background-image:url('../../assets/videos/conexion-unica.jpg');background-position:center"></div><div class="pcard-body">
+    <h3>Conexión Única</h3><span class="pcard-genre">Branded content</span><p>Conversaciones a distancia que tienen a las mascotas como protagonistas.</p>
+    <span class="pcard-more">Ver ficha</span></div></a></div></div></div></div></section>
+
+<!-- NOSOTROS -->
+
+
+<!-- TRIM POST -->
+
+
+<!-- EQUIPO -->
+
+
+<!-- PREMIOS -->
+
+
+<!-- TRABAJEMOS JUNTOS / CONTACTO -->
+
+
+<!-- HUB 1000 -->
+
+
+<!-- PRIVACIDAD -->
+
+
+</main>
+<canvas class="void" id="voidCanvas" aria-hidden="true" width="1440" height="900"></canvas>
+<div class="brand-modal" id="brandModal" role="dialog" aria-modal="true" aria-labelledby="bmTitle" hidden="">
+  <div class="bm-inner">
+    <button class="bm-close" id="bmClose" type="button" aria-label="Cerrar">×</button>
+    <div id="bmBody"></div>
+  </div>
+</div>
+<div class="follow" id="follow">
+  <div class="follow-links" id="followLinks" hidden="">
+    <a class="fl" href="https://www.instagram.com/cookingmediacl/" target="_blank" rel="noopener" aria-label="Instagram">In</a>
+    <a class="fl" href="https://cl.linkedin.com/company/cookingmedia-contents" target="_blank" rel="noopener" aria-label="LinkedIn">Ld</a>
+    <button class="fl" id="shareBtn" type="button" aria-label="Compartir esta página"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg></button>
+  </div>
+  <button class="follow-btn" id="followBtn" type="button" aria-expanded="false" aria-controls="followLinks"><span data-en="Follow us" data-es="Síguenos">Síguenos</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg></button>
+  <div class="follow-toast" id="followToast" role="status" aria-live="polite"></div>
+</div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true" style="transform: translate(720px, 450px);"></div><div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<template id="potTpl"><svg class="potsvg cook-pot" viewBox="0 0 200 200" aria-hidden="true"><g class="cp-steam"><path d="M66 86c-14-6-14-18 0-24s14-18 0-26"></path><path d="M84 82c-10-5-10-14 0-19s10-14 0-20"></path></g><g class="cp-lid"><path d="M58 104c4-16 22-26 42-26s38 10 42 26z"></path><rect x="90" y="66" width="20" height="12" rx="3"></rect></g><path class="cp-handle" d="M46 112h12v8H50zM154 112h-12v8h8z"></path><path class="cp-body" d="M56 110h88v44q0 14-14 14H70q-14 0-14-14z"></path><rect class="cp-shine" x="66" y="120" width="16" height="38" rx="4"></rect></svg><svg class="potsvg cook-wok" viewBox="0 0 200 220" aria-hidden="true"><defs><linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2381a"></stop><stop offset=".55" stop-color="#e2481a"></stop><stop offset=".8" stop-color="#ff7a2e"></stop><stop offset="1" stop-color="#f2a93b"></stop></linearGradient></defs><path class="cw-flame" fill="url(#flameGrad)" d="M104 8c-6 22 30 36 30 66 0-10 10-18 10-18 14 22 14 52 6 70-10 24-32 38-56 38-30 0-54-22-54-54 0-18 8-30 16-38-2 12 4 20 10 22-6-26 14-58 38-86z"></path><g class="cw-food"><circle class="f1" cx="86" cy="118" r="7"></circle><circle class="f2" cx="108" cy="112" r="5"></circle><circle class="f3" cx="96" cy="104" r="6" fill="none" stroke-width="3"></circle><circle class="f4" cx="118" cy="122" r="4"></circle></g><g class="cw-pan"><path d="M54 132q46 34 92 0z"></path><path d="M144 134l38-6" stroke-width="7" stroke-linecap="round"></path></g></svg></template>
+
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Reel CookingMedia" hidden="">
+  <button class="player-close" id="playerClose" aria-label="Cerrar">×</button>
+  <video id="playerVideo" controls="" playsinline=""></video>
+</div>
+
+<section class="cta-band cta-big" id="ctaBand"><div class="wrap">
+  <a class="cta-huge" href="../../contacto/" style=""><span data-en="Contact us" data-es="Contáctanos">Contáctanos</span><span class="cta-arrow" aria-hidden="true"><i class="arr"></i></span></a>
+  <a class="cta-mail" href="mailto:info@cookingmedia.cl" style="">info@cookingmedia.cl</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><img src="../../assets/logo.png" alt="CookingMedia" width="160" height="51" style="height:40px;width:auto;margin-bottom:16px"><p class="muted" style="font-size:14px" data-en="Content house: television, branded content and film." data-es="Casa de contenidos: televisión, branded content y cine.">Casa de contenidos: televisión, branded content y cine.</p></div>
+    <div><h4 data-en="Company" data-es="Productora">Productora</h4><a href="../../programas/" data-en="Shows" data-es="Programas">Programas</a><a href="../../nosotros/" data-en="About" data-es="Nosotros">Nosotros</a><a href="../../equipo/" data-en="Team" data-es="Equipo">Equipo</a><a href="../../hub1000/">Hub 1000</a></div>
+    <div><h4 data-en="Recognition" data-es="Reconocimientos">Reconocimientos</h4><a href="../../premios/" data-en="Awards" data-es="Premios">Premios</a></div>
+    <div><h4 data-en="Contact" data-es="Contacto">Contacto</h4><a href="mailto:info@cookingmedia.cl">info@cookingmedia.cl</a><a href="https://www.instagram.com/cookingmediacl/" target="_blank" rel="noopener">Instagram</a><a href="https://cl.linkedin.com/company/cookingmedia-contents" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <div class="legal"><span>© 2026 Cooking Media Contents</span><a href="../../privacidad/" data-en="Privacy policy" data-es="Política de privacidad">Política de privacidad</a></div>
+</div></footer>
+
+<script src="../../assets/app.js"></script>
+
+
+</body></html>
