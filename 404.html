@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es" class=""><head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cooking Media — Productora audiovisual non script y branded content</title>
+<meta name="description" content="Cooking Media: productora audiovisual especializada en contenidos non script y branded content. Hub de producción y postproducción con Trim Post." data-base="Cooking Media: productora audiovisual especializada en contenidos non script y branded content. Hub de producción y postproducción con Trim Post.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cooking Media">
+<meta property="og:title" content="Cooking Media — Productora audiovisual non script y branded content">
+<meta property="og:description" content="Cooking Media: productora audiovisual especializada en contenidos non script y branded content. Hub de producción y postproducción con Trim Post.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120f0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23120f0c%27/%3E%3Cpath d=%27M9 23V9h14%27 fill=%27none%27 stroke=%27%23e2481a%27 stroke-width=%273.5%27/%3E%3Cpath d=%27M23 13v10H13%27 fill=%27none%27 stroke=%27%23f7f2e9%27 stroke-width=%273.5%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://use.typekit.net/xsb1fwf.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="canonical" href="https://www.cookingmedia.cl/">
+<meta property="og:url" content="https://www.cookingmedia.cl/">
+<meta property="og:image" content="https://www.cookingmedia.cl/assets/poster-reel.jpg">
+</head>
+<body data-static="1" data-root="/" data-route="" data-site="https://www.cookingmedia.cl/" class="home view-inicio">
+<div class="loader" id="loader" role="status" aria-label="Cargando Cooking Media">
+  <div class="loader-logo" aria-hidden="true">
+    <img class="ll-base" src="assets/logo.png" alt="" width="320" height="102">
+    <div class="ll-fill" id="loaderLogoFill"><img src="assets/logo.png" alt="" width="320" height="102"></div>
+  </div>
+  <svg class="potsvg cook-pot" viewBox="0 0 200 200" aria-hidden="true"><g class="cp-steam"><path d="M66 86c-14-6-14-18 0-24s14-18 0-26"/><path d="M84 82c-10-5-10-14 0-19s10-14 0-20"/></g><g class="cp-lid"><path d="M58 104c4-16 22-26 42-26s38 10 42 26z"/><rect x="90" y="66" width="20" height="12" rx="3"/></g><path class="cp-handle" d="M46 112h12v8H50zM154 112h-12v8h8z"/><path class="cp-body" d="M56 110h88v44q0 14-14 14H70q-14 0-14-14z"/><rect class="cp-shine" x="66" y="120" width="16" height="38" rx="4"/></svg><svg class="potsvg cook-wok" viewBox="0 0 200 220" aria-hidden="true"><defs><linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2381a"/><stop offset=".55" stop-color="#e2481a"/><stop offset=".8" stop-color="#ff7a2e"/><stop offset="1" stop-color="#f2a93b"/></linearGradient></defs><path class="cw-flame" fill="url(#flameGrad)" d="M104 8c-6 22 30 36 30 66 0-10 10-18 10-18 14 22 14 52 6 70-10 24-32 38-56 38-30 0-54-22-54-54 0-18 8-30 16-38-2 12 4 20 10 22-6-26 14-58 38-86z"/><g class="cw-food"><circle class="f1" cx="86" cy="118" r="7"/><circle class="f2" cx="108" cy="112" r="5"/><circle class="f3" cx="96" cy="104" r="6" fill="none" stroke-width="3"/><circle class="f4" cx="118" cy="122" r="4"/></g><g class="cw-pan"><path d="M54 132q46 34 92 0z"/><path d="M144 134l38-6" stroke-width="7" stroke-linecap="round"/></g></svg>
+  <div class="loader-num" id="loaderNum">0<small>%</small></div>
+  <div class="loader-label" data-en="Cooking">Cocinando</div>
+  <div class="loader-bar"><i id="loaderBar"></i></div>
+  <script>
+  (function(){
+    var L=document.getElementById("loader"),N=document.getElementById("loaderNum"),B=document.getElementById("loaderBar"),
+        reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /* La olla aparece al abrir programas, fichas, quiénes somos y equipo; la cámara en el resto */
+    var POT={programas:1,programa:1,nosotros:1,equipo:1};
+    var route=document.body.getAttribute("data-route");
+    if(route===null) route=location.hash.replace(/^#\/?/,"");
+    var view=(route||"").split("/")[0]||"inicio", variant=POT[view]?"pot":"cam";
+    var key=variant==="pot"?"cm-pot-"+route:"cm-loaded";
+    var seen=false;try{seen=sessionStorage.getItem(key)==="1";sessionStorage.setItem(key,"1");}catch(e){}
+    if(seen){L.remove();return;}
+    /* todas las páginas usan el cargador del logo */
+    var parts=variant==="cam"?L.querySelectorAll(".cam *"):[],
+        p=0,loaded=false,start=performance.now(),MIN=reduce?150:(variant==="pot"?1150:650);
+    document.body.classList.add("loading");
+    addEventListener("load",function(){loaded=true});
+    function paint(v){
+      var r=Math.round(v);N.firstChild.nodeValue=r;B.style.width=v+"%";var F=document.getElementById("loaderLogoFill");if(F)F.style.clipPath="inset(0 "+(100-v)+"% 0 0)";
+      for(var i=0;i<parts.length;i++){var s=Math.min(1,Math.max(0,(v-i*4)/(100-parts.length*4+4)));parts[i].style.strokeDashoffset=100-s*100;}
+    }
+    if(reduce){for(var i=0;i<parts.length;i++)parts[i].style.strokeDashoffset=0;}
+    function tick(now){
+      var t=(now-start)/MIN, cap=loaded?100:90, target=Math.min(cap,100*(1-Math.pow(1-Math.min(t,1),2)));
+      if(loaded&&t>=1)target=100;
+      p+= (target-p)*(reduce?1:0.18); if(target-p<0.4)p=target;
+      paint(p);
+      if(p>=100){
+        L.classList.add("rolling");
+        setTimeout(function(){L.classList.add("done");document.body.classList.remove("loading");
+          setTimeout(function(){L.remove()},600);},reduce?50:250);
+        return;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+  </script>
+</div>
+
+<a class="sr" href="#main">Saltar al contenido</a>
+
+<header class="site-head" id="siteHead">
+  <div class="wrap head-row">
+    <a class="logo-link" href="" aria-label="CookingMedia, ir al inicio"><img src="assets/logo.png" alt="CookingMedia" width="320" height="102"></a>
+    <nav class="topnav" aria-label="Principal (escritorio)">
+      <a class="hl" href="hub1000/" data-route="b1000/">Hub 1000</a><a class="hl" href="trim/" data-route="im/">Trim Post</a>
+      <a href="programas/" data-en="Shows" data-es="Programas" data-route="ogramas/">Programas</a><a href="nosotros/" data-en="About" data-es="Nosotros" data-route="sotros/">Nosotros</a><a href="equipo/" data-en="Team" data-es="Equipo" data-route="uipo/">Equipo</a>
+      <a class="btn btn-primary topnav-cta" href="contacto/" data-en="Contact" data-es="Contacto" data-route="ntacto/">Contacto</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden="">
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a href="" data-en="Home" data-es="Inicio" data-route="" aria-current="page">Inicio</a>
+    <a class="nav-hub" href="hub1000/" data-route="b1000/">Hub 1000</a>
+    <a class="nav-hub" href="trim/" data-route="im/">Trim Post</a>
+    <a href="programas/" data-en="Shows" data-es="Programas" data-route="ogramas/">Programas</a>
+    <a href="nosotros/" data-en="About us" data-es="Quiénes somos" data-route="sotros/">Quiénes somos</a>
+    <a href="equipo/" data-en="Team" data-es="Equipo" data-route="uipo/">Equipo</a>
+    <a href="contacto/" data-en="Contact" data-es="Contacto" data-route="ntacto/">Contacto</a>
+  </nav>
+  <div class="menu-foot">
+    <button class="lang" id="langBtn" aria-label="Switch to English">EN</button>
+    <div class="socials"><a href="https://www.instagram.com/cookingmediacl/" target="_blank" rel="noopener" aria-label="Instagram">In</a><a href="https://cl.linkedin.com/company/cookingmedia-contents" target="_blank" rel="noopener" aria-label="LinkedIn">Ld</a></div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- INICIO -->
+<section class="view" data-view="inicio">
+  <div class="works" id="works" aria-label="Trabajos destacados">
+    <section class="work work-reel">
+      <div class="work-media"><video id="reelVideo" class="on" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="assets/poster-reel.jpg" aria-hidden="true"><source src="reel.mp4" type="video/mp4"></video></div>
+      <div class="wrap work-info">
+        <p class="work-kicker">Cooking Media</p>
+        <h1 class="work-title" data-en="&lt;small&gt;There is no&lt;/small&gt;single recipe" data-es="&lt;small&gt;No existe una&lt;/small&gt;sola receta"><small>No existe una</small>sola receta</h1>
+        <p class="work-sub" data-en="Non-script content / Branded content / Post-production" data-es="Contenidos non script / Branded content / Postproducción">Contenidos non script / Branded content / Postproducción</p>
+        <button class="work-link" data-open-reel="" data-en="Watch reel&nbsp;&lt;i class=arr&gt;&lt;/i&gt;" data-es="Ver reel&amp;nbsp;&lt;i class=&quot;arr&quot;&gt;&lt;/i&gt;">Ver reel&nbsp;<i class="arr"></i></button>
+      </div>
+      <button class="reel-toggle work-toggle" id="reelToggle" aria-label="Pausar video"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"></rect><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"></rect></svg></button>
+      <p class="scroll-hint" data-en="Scroll to explore" data-es="Desliza para explorar">Desliza para explorar</p>
+    </section>
+  </div>
+
+  <section class="vband">
+    <div class="wrap vband-head" style="">
+      <div><p class="kicker" data-en="Shows" data-es="Programas">Programas</p><h2 class="h2-mid" data-en="Our work" data-es="Nuestro trabajo">Nuestro trabajo</h2></div>
+      <div class="vband-nav">
+        <button id="vbPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <button id="vbNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+      </div>
+    </div>
+    <div class="vband-track" id="vband" tabindex="0" aria-label="Videos de programas"><article class="vb-item" style=""><a class="vid vb-vid vb-still" href="programa/mundos-opuestos/" aria-label="Mundos Opuestos">
+        <img src="assets/mundos.jpg" alt="" loading="lazy" style="object-position:center 40%"></a><div class="vb-cap"><h3>Mundos Opuestos</h3><span>Reality show / Canal 13</span><a href="programa/mundos-opuestos/">Ver ficha</a></div></article><article class="vb-item" style=""><a class="vid vb-vid vb-still" href="programa/tierra-brava/" aria-label="Tierra Brava">
+        <img src="assets/tierra.jpg" alt="" loading="lazy" style="object-position:center 28%"></a><div class="vb-cap"><h3>Tierra Brava</h3><span>Reality show / Canal 13</span><a href="programa/tierra-brava/">Ver ficha</a></div></article><article class="vb-item" style=""><a class="vid vb-vid vb-still" href="programa/ganar-o-servir/" aria-label="¿Ganar o Servir?">
+        <img src="assets/ganar.jpg" alt="" loading="lazy" style="object-position:center 28%"></a><div class="vb-cap"><h3>¿Ganar o Servir?</h3><span>Reality show / Canal 13</span><a href="programa/ganar-o-servir/">Ver ficha</a></div></article><article class="vb-item" style=""><a class="vid vb-vid vb-still" href="programa/vecinos-al-limite/" aria-label="Vecinos al Límite">
+        <img src="assets/videos/vecinos-al-limite.jpg" alt="" loading="lazy" style="object-position:center 32%"></a><div class="vb-cap"><h3>Vecinos al Límite</h3><span>Reality show / Canal 13</span><a href="programa/vecinos-al-limite/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="almacen" aria-label="Reproducir: Almacén">
+        <img src="assets/videos/almacen.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Almacén</h3><span>Reality show / Mega</span><a href="programa/almacen/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="aqui-somos-todos-100" aria-label="Reproducir: Aquí Somos Todos">
+        <img src="assets/videos/aqui-somos-todos-100.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Aquí Somos Todos</h3><span>Programa de TV / Canal 13</span><a href="programa/aqui-somos-todos/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="bilz-y-pap-cocina" aria-label="Reproducir: Bilz y Pap">
+        <img src="assets/videos/bilz-y-pap-cocina.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Bilz y Pap</h3><span>Branded content</span><a href="programa/bilz-y-pap/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="miller-music" aria-label="Reproducir: Miller Music">
+        <img src="assets/videos/miller-music.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Miller Music</h3><span>Branded content</span><a href="programa/miller-music/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="descubre-chile" aria-label="Reproducir: Descubre Chile">
+        <img src="assets/videos/descubre-chile.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Descubre Chile</h3><span>Programa de TV / 13C</span><a href="programa/descubre-chile/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="digitalizados" aria-label="Reproducir: Digitalizados">
+        <img src="assets/videos/digitalizados.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Digitalizados</h3><span>Programa de TV / Chilevisión</span><a href="programa/digitalizados/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="conexion-unica" aria-label="Reproducir: Conexión Única">
+        <img src="assets/videos/conexion-unica.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Conexión Única</h3><span>Branded content</span><a href="programa/conexion-unica/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="in-situ" aria-label="Reproducir: In Situ">
+        <img src="assets/videos/in-situ.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>In Situ</h3><span>Programa de TV / Base Pública</span><a href="programa/in-situ/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="reset" aria-label="Reproducir: Reset">
+        <img src="assets/videos/reset.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Reset</h3><span>Programa de TV</span><a href="programa/reset/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="actitud-re-1" aria-label="Reproducir: #Actitud RE">
+        <img src="assets/videos/actitud-re-1.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>#Actitud RE</h3><span>Branded content</span><a href="programa/actitud-re/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="pan-comido" aria-label="Reproducir: Pan Comido">
+        <img src="assets/videos/pan-comido.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Pan Comido</h3><span>Programa de TV / Mega</span><a href="programa/pan-comido/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="rapidos-y-sabrosos" aria-label="Reproducir: Rápidos y Sabrosos">
+        <img src="assets/videos/rapidos-y-sabrosos.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Rápidos y Sabrosos</h3><span>Programa de TV / Mega</span><a href="programa/rapidos-y-sabrosos/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="san-jose-1" aria-label="Reproducir: San José">
+        <img src="assets/videos/san-jose-1.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>San José</h3><span>Branded content</span><a href="programa/san-jose/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="juan-valdez" aria-label="Reproducir: Juan Valdez">
+        <img src="assets/videos/juan-valdez.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Juan Valdez</h3><span>Branded content</span><a href="programa/juan-valdez/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="planvital" aria-label="Reproducir: PlanVital">
+        <img src="assets/videos/planvital.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>PlanVital</h3><span>Branded content</span><a href="programa/planvital/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="copa-culinaria" aria-label="Reproducir: Copa Culinaria Carozzi">
+        <img src="assets/videos/copa-culinaria.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Copa Culinaria Carozzi</h3><span>Branded content / Mega</span><a href="programa/copa-culinaria-carozzi/">Ver ficha</a></div></article><article class="vb-item" style="">
+      <button class="vid vb-vid" data-video="juego-contra-fuego" aria-label="Reproducir: Juego Contra Fuego">
+        <img src="assets/videos/juego-contra-fuego.jpg" alt="" loading="lazy"><span class="vid-play"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"></path></svg></span>
+        </button><div class="vb-cap"><h3>Juego Contra Fuego</h3><span>Branded content / Canal 13</span><a href="programa/juego-contra-fuego/">Ver ficha</a></div></article></div>
+  </section>
+
+  <section class="e2e">
+    <div class="e2e-band"><div class="wrap"><h2 data-en="An end to end&lt;br&gt;&lt;span&gt;work model&lt;/span&gt;" data-es="Un modelo de trabajo&lt;br&gt;&lt;span&gt;end to end&lt;/span&gt;" class="" style="">Un modelo de trabajo<br><span>end to end</span></h2></div></div>
+    <div class="wrap e2e-grid">
+      <a class="e2e-card" href="hub1000/" style=""><div class="e2e-bg" style="background-image:url('assets/poster-hub.jpg')"></div>
+        <span class="e2e-lbl" data-en="Production hub" data-es="Hub de producción">Hub de producción</span>
+        <p data-en="We have our own teams and operations to develop audiovisual productions from start to finish." data-es="Contamos con equipos y operación propia para desarrollar producciones audiovisuales de principio a fin.">Contamos con equipos y operación propia para desarrollar producciones audiovisuales de principio a fin.</p>
+        <span class="e2e-more" data-en="Learn more&nbsp;&lt;i class=arr&gt;&lt;/i&gt;" data-es="Conoce más&amp;nbsp;&lt;i class=&quot;arr&quot;&gt;&lt;/i&gt;">Conoce más&nbsp;<i class="arr"></i></span></a>
+      <a class="e2e-card" href="programas/" style=""><div class="e2e-bg" style="background-image:url('assets/non-script.jpg')"></div>
+        <span class="e2e-lbl" data-en="Non-script content" data-es="Contenidos non script">Contenidos non script</span>
+        <p data-en="We create original formats, realities, docu-realities, game shows and branded content that connect with mass audiences." data-es="Creamos formatos originales, realities, docurealities, game shows y contenidos brandeados que conectan con audiencias masivas.">Creamos formatos originales, realities, docurealities, game shows y contenidos brandeados que conectan con audiencias masivas.</p>
+        <span class="e2e-more" data-en="Learn more&nbsp;&lt;i class=arr&gt;&lt;/i&gt;" data-es="Conoce más&amp;nbsp;&lt;i class=&quot;arr&quot;&gt;&lt;/i&gt;">Conoce más&nbsp;<i class="arr"></i></span></a>
+      <a class="e2e-card e2e-trim" href="trim/" style=""><div class="e2e-bg"><img src="assets/trim.png" alt="" width="770" height="210"></div>
+        <span class="e2e-lbl" data-en="Post-production" data-es="Postproducción">Postproducción</span>
+        <p data-en="Our specialized team handles editing, assembly, color, sound and motion graphics to give each piece a unique audiovisual identity." data-es="Contamos con un equipo especializado en edición, montaje, color, sonido y motion graphics para dar a cada contenido una identidad audiovisual única.">Contamos con un equipo especializado en edición, montaje, color, sonido y motion graphics para dar a cada contenido una identidad audiovisual única.</p>
+        <span class="e2e-more" data-en="Learn more&nbsp;&lt;i class=arr&gt;&lt;/i&gt;" data-es="Conoce más&amp;nbsp;&lt;i class=&quot;arr&quot;&gt;&lt;/i&gt;">Conoce más&nbsp;<i class="arr"></i></span></a>
+    </div>
+  </section>
+
+
+
+  
+
+
+</section>
+
+<!-- PROGRAMAS -->
+
+
+<!-- FICHA DE PROGRAMA (se arma con JS) -->
+
+
+<!-- NOSOTROS -->
+
+
+<!-- TRIM POST -->
+
+
+<!-- EQUIPO -->
+
+
+<!-- PREMIOS -->
+
+
+<!-- TRABAJEMOS JUNTOS / CONTACTO -->
+
+
+<!-- HUB 1000 -->
+
+
+<!-- PRIVACIDAD -->
+
+
+</main>
+<canvas class="void" id="voidCanvas" aria-hidden="true" width="1440" height="900"></canvas>
+<div class="brand-modal" id="brandModal" role="dialog" aria-modal="true" aria-labelledby="bmTitle" hidden="">
+  <div class="bm-inner">
+    <button class="bm-close" id="bmClose" type="button" aria-label="Cerrar">×</button>
+    <div id="bmBody"></div>
+  </div>
+</div>
+<div class="follow" id="follow">
+  <div class="follow-links" id="followLinks" hidden="">
+    <a class="fl" href="https://www.instagram.com/cookingmediacl/" target="_blank" rel="noopener" aria-label="Instagram">In</a>
+    <a class="fl" href="https://cl.linkedin.com/company/cookingmedia-contents" target="_blank" rel="noopener" aria-label="LinkedIn">Ld</a>
+    <button class="fl" id="shareBtn" type="button" aria-label="Compartir esta página"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg></button>
+  </div>
+  <button class="follow-btn" id="followBtn" type="button" aria-expanded="false" aria-controls="followLinks"><span data-en="Follow us" data-es="Síguenos">Síguenos</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg></button>
+  <div class="follow-toast" id="followToast" role="status" aria-live="polite"></div>
+</div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true" style="transform: translate(720px, 450px);"></div><div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<template id="potTpl"><svg class="potsvg cook-pot" viewBox="0 0 200 200" aria-hidden="true"><g class="cp-steam"><path d="M66 86c-14-6-14-18 0-24s14-18 0-26"></path><path d="M84 82c-10-5-10-14 0-19s10-14 0-20"></path></g><g class="cp-lid"><path d="M58 104c4-16 22-26 42-26s38 10 42 26z"></path><rect x="90" y="66" width="20" height="12" rx="3"></rect></g><path class="cp-handle" d="M46 112h12v8H50zM154 112h-12v8h8z"></path><path class="cp-body" d="M56 110h88v44q0 14-14 14H70q-14 0-14-14z"></path><rect class="cp-shine" x="66" y="120" width="16" height="38" rx="4"></rect></svg><svg class="potsvg cook-wok" viewBox="0 0 200 220" aria-hidden="true"><defs><linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2381a"></stop><stop offset=".55" stop-color="#e2481a"></stop><stop offset=".8" stop-color="#ff7a2e"></stop><stop offset="1" stop-color="#f2a93b"></stop></linearGradient></defs><path class="cw-flame" fill="url(#flameGrad)" d="M104 8c-6 22 30 36 30 66 0-10 10-18 10-18 14 22 14 52 6 70-10 24-32 38-56 38-30 0-54-22-54-54 0-18 8-30 16-38-2 12 4 20 10 22-6-26 14-58 38-86z"></path><g class="cw-food"><circle class="f1" cx="86" cy="118" r="7"></circle><circle class="f2" cx="108" cy="112" r="5"></circle><circle class="f3" cx="96" cy="104" r="6" fill="none" stroke-width="3"></circle><circle class="f4" cx="118" cy="122" r="4"></circle></g><g class="cw-pan"><path d="M54 132q46 34 92 0z"></path><path d="M144 134l38-6" stroke-width="7" stroke-linecap="round"></path></g></svg></template>
+
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Reel CookingMedia" hidden="">
+  <button class="player-close" id="playerClose" aria-label="Cerrar">×</button>
+  <video id="playerVideo" controls="" playsinline=""></video>
+</div>
+
+<section class="cta-band cta-big" id="ctaBand"><div class="wrap">
+  <a class="cta-huge" href="contacto/" style=""><span data-en="Contact us" data-es="Contáctanos">Contáctanos</span><span class="cta-arrow" aria-hidden="true"><i class="arr"></i></span></a>
+  <a class="cta-mail" href="mailto:info@cookingmedia.cl" style="">info@cookingmedia.cl</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><img src="assets/logo.png" alt="CookingMedia" width="160" height="51" style="height:40px;width:auto;margin-bottom:16px"><p class="muted" style="font-size:14px" data-en="Content house: television, branded content and film." data-es="Casa de contenidos: televisión, branded content y cine.">Casa de contenidos: televisión, branded content y cine.</p></div>
+    <div><h4 data-en="Company" data-es="Productora">Productora</h4><a href="programas/" data-en="Shows" data-es="Programas">Programas</a><a href="nosotros/" data-en="About" data-es="Nosotros">Nosotros</a><a href="equipo/" data-en="Team" data-es="Equipo">Equipo</a><a href="hub1000/">Hub 1000</a></div>
+    <div><h4 data-en="Recognition" data-es="Reconocimientos">Reconocimientos</h4><a href="premios/" data-en="Awards" data-es="Premios">Premios</a></div>
+    <div><h4 data-en="Contact" data-es="Contacto">Contacto</h4><a href="mailto:info@cookingmedia.cl">info@cookingmedia.cl</a><a href="https://www.instagram.com/cookingmediacl/" target="_blank" rel="noopener">Instagram</a><a href="https://cl.linkedin.com/company/cookingmedia-contents" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <div class="legal"><span>© 2026 Cooking Media Contents</span><a href="privacidad/" data-en="Privacy policy" data-es="Política de privacidad">Política de privacidad</a></div>
+</div></footer>
+
+<script src="assets/app.js"></script>
+
+
+</body></html>
